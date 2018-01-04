@@ -1,8 +1,4 @@
-# 2018.01.01 G55T
-# reference: https://github.com/jhlau/doc2vec
-#
-
-#python example to infer document vectors from trained doc2vec model
+#python example to infer document vectors from pre-trained doc2vec model
 import gensim.models as g
 import codecs
 import math
@@ -15,7 +11,7 @@ class ClassifySentences():
     def load_model(self):
         model="doc2vec/model/doc2vec.bin"
 
-        d2v = g.Doc2Vec.load(model)
+        d2v = g.Doc2Vec.load(model) # read pre-trained model(model is not uploaded)
         return d2v
 
     # method: infer sentences
@@ -30,13 +26,10 @@ class ClassifySentences():
         for d in input_docs:
             vectors.append(d2v.infer_vector(d, alpha=START_ALPHA, steps=INFER_EPOCH))
 
-
-#        output_vecs = np.array(vecs, dtype=float)
         output_vecs = np.array(vectors, dtype=float)
 
         # execute kmeans
         return calc_kmeans(output_vecs,N_CLASS)
-
 
 
 def calc_kmeans(sim_matrix,n_class):
