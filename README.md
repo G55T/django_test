@@ -2,7 +2,7 @@
 <h1>Document Classifier</h1>
 
 <h2>Overview</h2>
-Organizing some information is sometimes important to advance any project, thinking or brain-storming.
+Organizing some information is sometimes important to advance a project, thinking or brain-storming.
 This web-app enables classifying any documents.
 
 To deploy this, django, python3, gensim must be installed in advance.
