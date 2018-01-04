@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <form action="{% url 'sent:index' %}" method="post">
+                <div class="row">
+                    {% for field in form %}
+                    <label class="col-sm-3">{{ field.label_tag }}</label>
+                    <label class="col-sm-7" name="text_field">{{ field }}</label>
+                    {% endfor %}
+                    <input type="submit" class="btn btn-primary" name="submit_button" value="Submit">
+                    <input type="submit" class="btn btn-primary" name="infer_button" value="Infer">
+                    {% csrf_token %}
+                </div>
+            </form>
+        {% include "to_do.html" %}
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,10 @@
+<div class="row">
+    {% for i in new_text %}
+    <div class="col-md-4">
+        <p>No.{{ i.id }}  <u>title:{{i.title}}</u>- {{ i.created_at }}
+        - <b>group: {{i.group}}</b>
+        </p>
+        <p>{{ i.message | linebreaks }}</p>
+    </div>
+    {% endfor %}
+</div>
